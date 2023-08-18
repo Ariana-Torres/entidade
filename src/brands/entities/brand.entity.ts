@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class Product {
+export class Brand {
   @PrimaryGeneratedColumn({ type: 'int4' }) //este decorador hace referencia al primaty key
   id?: number;
 

@@ -1,6 +1,6 @@
 import { IsNotEmpty, IsNumber, IsString, MaxLength } from 'class-validator';
 
-export class CreateProductDto {
+export class CreateBrandDto {
   @IsNotEmpty()
   @IsNumber()
   id?: number;
