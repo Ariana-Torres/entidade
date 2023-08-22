@@ -20,8 +20,18 @@ export class BrandsService {
   }
 
   //Encontrar un registro
+  //findOne(id: number) {
+  //return this.brandRepo.findOneBy({ id });
+  //}
+
+  //Encontrar un registro con relaciones
   findOne(id: number) {
-    return this.brandRepo.findOneBy({ id });
+    return this.brandRepo.findOne({
+      where: { id },
+      relations: {
+        autor: true,
+      },
+    });
   }
 
   //Mostrar todos los registros
