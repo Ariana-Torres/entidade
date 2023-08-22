@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Model } from '../entities/models.entity';
 import { Repository } from 'typeorm';
+import { Brand } from '../entities/brand.entity';
 
 @Injectable()
 export class ModelsService {
@@ -19,8 +20,18 @@ export class ModelsService {
   }
 
   //Encontrar un modelo
+  //findOne(id: number) {
+  //return this.modelRepo.findOneBy({ id });
+  //}
+
+  //Encontrar un registro con relaciones
   findOne(id: number) {
-    return this.modelRepo.findOneBy({ id });
+    return this.modelRepo.findOne({
+      where: { id },
+      relations: {
+        autor: true,
+      },
+    });
   }
 
   //Mostrar todos los modelo

@@ -23,7 +23,4 @@ export class Brand {
 
   @Column({ type: 'int8', nullable: false })
   stock: number;
-
-  @Column({ type: 'int', nullable: false })
-  user_id: number;
 }
