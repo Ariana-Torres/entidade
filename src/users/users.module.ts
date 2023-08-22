@@ -13,6 +13,7 @@ import { UserController } from './controllers/users.controller';
   providers: [
     UsersService,
     //aqui van los servicios
+    //aqui van los servicios
   ],
 })
 export class UsersModule {}
