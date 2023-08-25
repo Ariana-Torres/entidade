@@ -22,7 +22,6 @@ export class Category {
   @Column({ type: 'int4', nullable: false })
   user_id: number;
 
-  
   //relaciones
   //relaciones de muchos a uno
   @ManyToOne(() => User)

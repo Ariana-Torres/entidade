@@ -12,12 +12,12 @@ import { CategorysService } from '../services/categorys.service';
 import { CreateCategoryDto } from '../dto/category.dto';
 
 @Controller('categorys')
-export class CategorysController {
+export class CategoryController {
   constructor(private readonly CategorysServices: CategorysService) {}
 
   @Post()
-  async create(@Body() categoryDto: CreateCategoryDto) {
-    return await this.CategorysServices.create(categoryDto);
+  async create(@Body() categorysDto: CreateCategoryDto) {
+    return await this.CategorysServices.create(categorysDto);
   }
 
   @Get()

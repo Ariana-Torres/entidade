@@ -5,7 +5,7 @@ import { ProductsService } from './services/products.service';
 import { ProductController } from './controllers/products.controller';
 import { ProductImage } from './entities/product-image.entity';
 import { CategorysService } from './services/categorys.service';
-import { CategorysController } from './controllers/categorys.controllers';
+import { CategoryController } from './controllers/categorys.controllers';
 import { Category } from './entities/category.entities';
 
 @Module({
@@ -17,9 +17,9 @@ import { Category } from './entities/category.entities';
   ],
   controllers: [
     ProductController,
-    CategorysController,
+    CategoryController,
     //aqui van los controladores
   ],
 })
 export class ProductsModule {}
-export class CategoryModule {}
+export class CategoryModel {}
