@@ -1,5 +1,6 @@
 import {
   Column,
+  CreateDateColumn,
   Entity,
   JoinColumn,
   ManyToOne,
@@ -26,6 +27,12 @@ export class Product {
 
   @Column({ type: 'int4', nullable: false })
   user_id: number;
+
+  @Column({type: 'varchar', nullable: false })
+  filename: string;
+
+  @CreateDateColumn({type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+  created_at: Date;
 
   //relaciones
   //relaciones de muchos a uno
