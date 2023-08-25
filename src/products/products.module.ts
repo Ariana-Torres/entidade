@@ -6,7 +6,7 @@ import { ProductController } from './controllers/products.controller';
 import { ProductImage } from './entities/product-image.entity';
 import { CategorysService } from './services/categorys.service';
 import { CategoryController } from './controllers/categorys.controllers';
-import { Category } from './entities/category.entities';
+import { Category } from './entities/category.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Product, ProductImage, Category])],
@@ -22,4 +22,3 @@ import { Category } from './entities/category.entities';
   ],
 })
 export class ProductsModule {}
-export class CategoryModel {}
