@@ -5,7 +5,7 @@ import { FilesService } from '../services/files.services';
 export class FilesController {
   constructor(private readonly filesService: FilesService) {}
 
-  @Post()
+  @Post('product')
   UploadImage() {
     return 'Hola Mundo';
   }

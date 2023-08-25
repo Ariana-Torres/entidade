@@ -9,31 +9,20 @@ import {
 import { User } from '../../users/entities/user.entity';
 
 @Entity()
-export class Product {
+export class Category {
   @PrimaryGeneratedColumn({ type: 'int4' }) //este decorador hace referencia al primaty key
   id?: number;
 
   @Column({ type: 'varchar', length: 100, nullable: false })
-  name: string;
+  categoria: string;
 
-  @Column({ type: 'varchar', length: 300, nullable: false })
-  description: string;
-
-  @Column({ type: 'int4', nullable: false })
-  price: number;
-
-  @Column({ type: 'int8', nullable: false })
-  stock: number;
+  @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+  created_at: Date;
 
   @Column({ type: 'int4', nullable: false })
   user_id: number;
 
-  @Column({ type: 'varchar', nullable: false })
-  filename: string;
-
-  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
-  created_at: Date;
-
+  
   //relaciones
   //relaciones de muchos a uno
   @ManyToOne(() => User)
