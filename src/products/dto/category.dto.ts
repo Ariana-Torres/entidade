@@ -25,5 +25,4 @@ export class CreateCategoryDto {
   @IsNotEmpty()
   @IsNumber()
   user_id: number;
-  
 }
