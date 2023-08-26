@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { CreateCategoryDto } from '../dto/category.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Category } from '../entities/category.entities';
+import { Category } from '../entities/category.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
-export class CategorysService {
+export class CategoryService {
   constructor(
     @InjectRepository(Category)
     private readonly categoryRepo: Repository<Category>,
@@ -13,25 +13,12 @@ export class CategorysService {
 
   //Crear un categoria
   async create(createCategoryDto: CreateCategoryDto) {
-    const category = await this.categoryRepo.create(createCategoryDto);
-    await this.categoryRepo.save(category);
-
-    return category;
+    const newCategory = this.categoryRepo.create(createCategoryDto);
+    return await this.categoryRepo.save(newCategory);
   }
-
-  //Encontrar un registro
-  //findOne(id: number) {
-  //  return this.productRepo.findOneBy({ id });
-  //}
-
   //Encontrar un registro con categoria
   findOne(id: number) {
-    return this.categoryRepo.findOne({
-      where: { id },
-      relations: {
-        autor: true,
-      },
-    });
+    return this.categoryRepo.findOneBy({ id });
   }
 
   //Mostrar todos las categorias

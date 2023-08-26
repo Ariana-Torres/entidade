@@ -7,6 +7,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { User } from '../../users/entities/user.entity';
+import { Category } from './category.entity';
 
 @Entity()
 export class Product {
@@ -28,6 +29,9 @@ export class Product {
   @Column({ type: 'int4', nullable: false })
   user_id: number;
 
+  @Column({ type: 'int4', nullable: false })
+  categoria_id: number;
+
   @Column({ type: 'varchar', nullable: false })
   filename: string;
 
@@ -42,4 +46,11 @@ export class Product {
     referencedColumnName: 'id', //este es el id del usuario
   })
   autor: User;
+//relacion con la tabla Categoria en producto
+  @ManyToOne(() => Category)
+  @JoinColumn({
+    name: 'categoria_id', //el campo que relaciona a mi tabla
+    referencedColumnName: 'id', //este es el id del usuario
+  })
+  categoria: Category;
 }
