@@ -37,6 +37,7 @@ export class ProductsService {
   }
 
   //Eliminar un registro
+  //Eliminar un registro
   async remove(id: number) {
     const product = await this.findOne(id);
     await this.productRepo.remove(product);
