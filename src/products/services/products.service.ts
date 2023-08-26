@@ -28,6 +28,11 @@ export class ProductsService {
   findAll() {
     return this.productRepo.find({
       order: { id: 'ASC' },
+      relations: {
+        autor: true,
+        categoria: true,
+        proveedor: true,
+      }
     });
   }
 
