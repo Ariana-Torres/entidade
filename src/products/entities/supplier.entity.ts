@@ -9,8 +9,8 @@ export class Supplier {
   @Column({ type: 'varchar', length: 100, nullable: false })
   proveedor: string;
 
-  @CreateDateColumn ({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
-  created_at: Date;
+  @Column ({  })
+  created_at: string;
 
   @Column({ type: 'int4', nullable: false })
   user_id: number;

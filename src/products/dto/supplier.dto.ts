@@ -11,7 +11,7 @@ export class CreateSupplierDto {
     @MaxLength(100)
     categoria: string;
   
-    @IsDateString()
+    @IsString()
     @IsOptional()
     created_at: string;
   
