@@ -8,12 +8,12 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
-import { CategorysService } from '../services/categorys.service';
+import { CategoryService } from '../services/category.service';
 import { CreateCategoryDto } from '../dto/category.dto';
 
-@Controller('categorys')
+@Controller('category')
 export class CategoryController {
-  constructor(private readonly CategorysServices: CategorysService) {}
+  constructor(private readonly CategorysServices: CategoryService) {}
 
   @Post()
   async create(@Body() categorysDto: CreateCategoryDto) {
@@ -23,11 +23,6 @@ export class CategoryController {
   @Get()
   findAll() {
     return this.CategorysServices.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.CategorysServices.findOne(id);
   }
 
   @Delete(':id')

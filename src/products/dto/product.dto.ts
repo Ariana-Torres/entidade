@@ -38,4 +38,12 @@ export class CreateProductDto {
   @IsDateString()
   @IsOptional()
   created_at: string;
+
+  @IsNotEmpty()
+  @IsNumber()
+  user_id: number;
+
+  @IsNotEmpty()
+  @IsNumber()
+  categoria_id: number;
 }
