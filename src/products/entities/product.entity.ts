@@ -8,10 +8,7 @@ import {
 } from 'typeorm';
 import { User } from '../../users/entities/user.entity';
 import { Category } from './category.entity';
-<<<<<<< HEAD
 import { Supplier } from './supplier.entity';
-=======
->>>>>>> 095d1e43116bb79b2c83ccdf095b04e721507797
 
 @Entity()
 export class Product {
@@ -50,7 +47,6 @@ export class Product {
     referencedColumnName: 'id', //este es el id del usuario
   })
   autor: User;
-<<<<<<< HEAD
 
   @ManyToOne(() => Category)
   @JoinColumn({
@@ -65,13 +61,4 @@ export class Product {
     referencedColumnName: 'id', //este es el id del usuario
   })
   proveedor: Supplier;
-=======
-//relacion con la tabla Categoria en producto
-  @ManyToOne(() => Category)
-  @JoinColumn({
-    name: 'categoria_id', //el campo que relaciona a mi tabla
-    referencedColumnName: 'id', //este es el id del usuario
-  })
-  categoria: Category;
->>>>>>> 095d1e43116bb79b2c83ccdf095b04e721507797
 }
