@@ -6,6 +6,7 @@ import { CategoryModule, ProductsModule } from './products/products.module';
 import { BrandsModule } from './brands/brands.module';
 import { UsersModule } from './users/users.module';
 import { FilesModule } from './files/files.module';
+import { FilesPdfModule } from './filesPDF/filesPdf.module';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import { FilesModule } from './files/files.module';
       host: 'localhost',
       port: 5432,
       username: 'postgres',
-      password: '12345678',
+      password: 'root',
       database: 'shop',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
@@ -24,6 +25,7 @@ import { FilesModule } from './files/files.module';
     UsersModule,
     BrandsModule,
     FilesModule,
+    FilesPdfModule,
   ],
   controllers: [AppController],
   providers: [AppService],
