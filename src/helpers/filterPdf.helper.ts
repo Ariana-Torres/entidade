@@ -10,7 +10,7 @@ export const filerPdf = (
     const filerExtension = filer.mimetype.split('/')[1];
 
     //estas serian ños axtensiones validas para los archivos
-    const valiExtension = ['pdf'];
+    const valiExtension = ['pdf', 'docx'];
 
     //si las extensiones validas incluyen la extension deñ archivo
     if(valiExtension.includes(filerExtension)){

@@ -4,11 +4,13 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { User } from '../../users/entities/user.entity';
 import { Category } from './category.entity';
 import { Supplier } from './supplier.entity';
+import { ProductImage } from './product-image.entity';
 
 @Entity()
 export class Product {
@@ -30,10 +32,10 @@ export class Product {
   @Column({ type: 'int4', nullable: false })
   user_id: number;
 
-  @Column({ type: 'int4', nullable: false })
+  @Column({ type: 'int4', nullable: true })
   categoria_id: number;
 
-  @Column({ type: 'varchar', nullable: false })
+  @Column({ type: 'varchar', nullable: true  })
   filename: string;
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
@@ -61,4 +63,11 @@ export class Product {
     referencedColumnName: 'id', //este es el id del usuario
   })
   proveedor: Supplier;
+
+//Relacion de uno a mucho
+//un producto puede tener, muchas imagenes
+  @OneToMany(() => ProductImage, (productImage) => productImage.product, {
+    cascade: true
+  })
+  images?: ProductImage[];	
 }
