@@ -1,9 +1,10 @@
-import { BadRequestException, Controller, Get, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { BadRequestException, Controller, Get, Param, Post, Res, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { FilesService } from '../services/files.services';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { fileName } from 'src/helpers/fileName.helper';
 import { fileFilter } from 'src/helpers/fileFilter.helper';
+import { Response } from 'express';
 
 
 @Controller('files')
@@ -28,9 +29,17 @@ export class FilesController {
       throw new BadRequestException('Asegurese que el atchivo es una imagen');
     }
 
-    return {
-      fileName: file.filename,
-    };
+    const url = `${file.filename}`;
+
+    return { url };
+  }
+
+  @Get('product/:imageName')
+  findProduc(@Res() res: Response, @Param('imageName') imageName: string) {
+    const path = this.filesService.getStatiscImageName(imageName);
+    
+    //return path;
+    res.sendFile(path);
   }
 
   @Get('product/:imageId')
