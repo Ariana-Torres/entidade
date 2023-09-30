@@ -25,7 +25,7 @@ export class ProductsService {
     return product;
   }*/
 
-  //CRear un producto y agregar imagen
+  //Crear un producto y agregar imagen
   async create(productDto: CreateProductDto) {
     const {images =[], ...detailsProducts} =  productDto;
 

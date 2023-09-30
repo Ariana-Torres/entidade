@@ -22,7 +22,7 @@ export class FilesController {
         destination: './static/products',
         filename: fileName,
       }),
-  }),
+    }),
   )
   uploadFile(@UploadedFile() file: Express.Multer.File) {
     if (!file) {
@@ -37,8 +37,15 @@ export class FilesController {
   @Get('product/:imageName')
   findProduc(@Res() res: Response, @Param('imageName') imageName: string) {
     const path = this.filesService.getStatiscImageName(imageName);
-    
+
     //return path;
+    res.sendFile(path);
+  }
+
+  @Get('user/:imageName')
+  findUser(@Res() res: Response, @Param('imageName') imageName: string) {
+    const path = this.filesService.getStatiscImageName(imageName);
+
     res.sendFile(path);
   }
 
@@ -46,5 +53,4 @@ export class FilesController {
   getImage() {
     return 'Hola Mundo';
   }
-
 }
