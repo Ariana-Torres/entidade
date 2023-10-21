@@ -16,5 +16,6 @@ import { UserImage } from './entities/user-image.entity';
     //aqui van los servicios
     //aqui van los servicios
   ],
+  exports: [TypeOrmModule, UsersModule],
 })
 export class UsersModule {}
